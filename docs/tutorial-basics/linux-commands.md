@@ -46,12 +46,13 @@ sidebar_position: 3
 When working with High-Performance Computing (HPC) systems in Linux, there are several basic commands that are commonly used. Here are some of the essential commands:
 
 1. `pwd`: print present working directory
+
 	Example: `$pwd`
 
 
 1. `ssh`: Secure Shell (SSH) is used to connect to remote HPC systems. You can use the `ssh` command followed by the remote server's IP address or hostname to establish a secure shell connection.
 
-   Example: `ssh username@remote_server`
+    Example: `ssh username@remote_server`
 
 2. `ls`: List the contents of a directory. It displays the files and directories in the current working directory.
 
