@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Introduction to Linux in High Performance Computing
+# Linux Command Line
 
 
 ### Table of Contents
