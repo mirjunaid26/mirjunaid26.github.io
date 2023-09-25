@@ -3,6 +3,7 @@ sidebar_position: 2
 ---
 
 # Translate your site
+## CAUTION : WORK IN PROGRESS
 
 Let's translate `docs/intro.md` to French.
 
