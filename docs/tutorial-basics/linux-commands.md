@@ -47,7 +47,7 @@ When working with High-Performance Computing (HPC) systems in Linux, there are s
 
 1. `pwd`: print present working directory
 
-	Example: `$pwd`
+	Example: ```pwd```
 
 
 1. `ssh`: Secure Shell (SSH) is used to connect to remote HPC systems. You can use the `ssh` command followed by the remote server's IP address or hostname to establish a secure shell connection.
