@@ -104,10 +104,6 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://mirjunaid26.github.io/',
-              },
-              {
                 label: 'Discord',
                 href: 'https://mirjunaid26.github.io/',
               },
