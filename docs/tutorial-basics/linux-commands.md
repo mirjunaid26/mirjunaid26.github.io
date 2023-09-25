@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 
 # Linux Command Line
-----------------------------------------------------------------------------------------------------------------------
+
 When working with High-Performance Computing (HPC) systems in Linux, there are several basic commands that are commonly used. Here are some of the essential commands:
 
 1. `pwd`: Print the current working directory. It displays the path of the current directory you are in.
