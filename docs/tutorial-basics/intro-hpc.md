@@ -22,32 +22,6 @@ Computer clusters (also called HPC clusters). An HPC cluster consists of multipl
 
 High-performance components: All the other computing resources in an HPC cluster—networking, memory, storage and file systems—are high-speed, high-throughput and low-latency components that can keep pace with the nodes and optimize the computing power and performance of the cluster.
 
-# HPC and Cloud Computing
-
-As recently as a decade ago, the high cost of HPC—which involved owning or leasing a supercomputer or building and hosting an HPC cluster in an on-premises data center—put HPC out of reach for most organizations.
-
-Today HPC in the cloud—sometimes called HPC as a service, or HPCaaS—offers a significantly faster, more scalable and more affordable way for companies to take advantage of HPC. HPCaaS typically includes access to HPC clusters and infrastructure hosted in a cloud service provider’s data center, plus ecosystem capabilities (such as AI and data analytics) and HPC expertise.
-
-Today HPC in the cloud is driven by three converging trends:
-
-Surging demand. Organizations across all industries are becoming increasingly dependent on the real-time insights and competitive advantage that results from solving the complex problems only HPC apps can solve. For example, credit card fraud detection—something virtually all of us rely on and most of us have experienced at one time or another—relies increasingly on HPC to identify fraud faster and reduce annoying false positives, even as fraud activity expands and fraudsters’ tactics change constantly.
-
-Prevalence of lower-latency, higher-throughput RDMA networking. RDMA—remote direct memory access—enables one networked computer to access another networked computer’s memory without involving either computer’s operating system or interrupting either computer’s processing. This helps minimize latency and maximize throughput. Emerging high-performance RDMA fabrics—including Infiniband, Virtual Interface Architecture, and RDMA over converged ethernet (RoCE)—are essentially making cloud-based HPC possible.
-
-Widespread public-cloud and private-cloud HPCaaS availability. Today every leading public cloud service provider offers HPC services. And while some organizations continue to run highly regulated or sensitive HPC workloads on-premises, many are adopting or migrating to private-cloud HPC solutions offered by hardware and solution vendors.
-
-# HPC Use Cases
-
-HPC applications have become synonymous with AI apps in general, and with machine learning and deep learning apps in particular; today most HPC systems are created with these workloads in mind. These HPC applications are driving continuous innovation in:
-
-Healthcare, genomics and life sciences. The first attempt to sequence a human genome took 13 years; today, HPC systems can do the job in less than a day. Other HPC applications in healthcare and life sciences include drug discovery and design, rapid cancer diagnosis, and molecular modeling.
-
-Financial services. In addition to automated trading and fraud detection (noted above), HPC powers applications in Monte Carlo simulation and other risk analysis methods.
-
-Government and defense. Two growing HPC use cases in this area are weather forcasting and climate modeling, both of which involve processing vast amounts of historical meteorological data and millions of daily changes in climate-related data points. Other government and defense applications include energy research and intelligence work.
-
-Energy. In some cases overlapping with government and defense, energy-related HPC applications include seismic data processing, reservoir simulation and modeling, geospatial analytics, wind simulation and terrain mapping.
-
 ## Key Features and Benefits of HPC
 
 1. **Speed and Scalability:** HPC systems are designed to deliver exceptional processing speed and scalability. By distributing computational tasks across multiple processors or computing nodes, HPC allows for parallel execution, significantly reducing the time required to complete computationally demanding tasks.
