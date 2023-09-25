@@ -107,14 +107,6 @@ const config = {
                 label: 'Stack Overflow',
                 href: 'https://mirjunaid26.github.io/',
               },
-              {
-                label: 'Discord',
-                href: 'https://mirjunaid26.github.io/',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://mirjunaid26.github.io/',
-              },
             ],
           },
           {
