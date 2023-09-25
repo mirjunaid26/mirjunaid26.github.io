@@ -131,7 +131,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} MJ, Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Mir Junaid, Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
