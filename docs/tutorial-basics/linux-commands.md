@@ -61,18 +61,17 @@ When working with High-Performance Computing (HPC) systems in Linux, there are s
 	```
 	nano filename
 	```
-11. `scp`: Transferring files to HPC Clusters from a Mac/Linux.
+12. `scp`: Transferring files to HPC Clusters from a Mac/Linux.
 	```
 	scp filename username@cluster:~
 	```
-12. Transferring files to HPC Clusters from windows.
-   Install MobaXterm
-
-12. `ssh`: Secure Shell (SSH) is used to connect to remote HPC systems. You can use the `ssh` command followed by the remote server's IP address or hostname to establish a secure shell connection.
+13. `ssh`: Secure Shell (SSH) is used to connect to remote HPC systems. You can use the `ssh` command followed by the remote server's IP address or hostname to establish a secure shell connection.
 
 	```
 	ssh nautilus
 	```
+
+
 These are just a few basic commands, but there are many more available in Linux for various purposes. It's also worth mentioning that some HPC systems may have additional commands or utilities specific to their setup or configuration.
 
 
