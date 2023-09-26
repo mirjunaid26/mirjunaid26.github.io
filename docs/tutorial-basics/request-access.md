@@ -12,13 +12,13 @@ sidebar_position: 5
 
 	Host Bastion
 		Hostname bastion.glicid.fr
-		User jmir@ec-nantes.fr
+		User <username>@ec-nantes.fr
 		IdentityFile ~/.ssh/id_rsa
 		ForwardAgent yes
 
 	Host glicid
 		Hostname login-001.glicid.fr
-		User jmir@ec-nantes.fr
+		User <username>@ec-nantes.fr
 		ProxyJump Bastion
 		IdentityFile ~/.ssh/id_rsa
 
