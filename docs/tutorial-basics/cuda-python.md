@@ -2,7 +2,6 @@
 sidebar_position: 9
 ---
 
-# Change this code
 # CUDA Python/C++
 
 ![Docusaurus Plushie](./cuda.png) ![Docusaurus Plushie](./cuda.jpeg)
