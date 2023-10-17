@@ -44,8 +44,9 @@ Submitted batch job 1411747 on cluster nautilus
 ```
 
 - Checking Job Status: You can check the status of your jobs using the squeue command:
-```
 squeue -u username
+```
+squeue -u jmir@ec-nantes.fr
 ```
 or you can use
 ```
@@ -55,12 +56,14 @@ squeue -u $USER
 This will display information about your jobs, such as job ID, job name, status, and other details.
 
 - To view detailed information about a specific job, including its resource usage, use the scontrol command:
-```
 scontrol show job job_id -M nautilus
 ```
-- Managing Jobs: You can cancel a running job using the scancel command followed by the job ID:
+scontrol show job 1411747 -M nautilus
 ```
+- Managing Jobs: You can cancel a running job using the scancel command followed by the job ID:
 scancel job_id
+```
+scancel 1411747
 ```
 
 - Job Output: By default, SLURM captures the standard output and standard error of your job in a file. In the job script example, the output is redirected to output.txt. After the job finishes, you can examine this file to see the job's output.
