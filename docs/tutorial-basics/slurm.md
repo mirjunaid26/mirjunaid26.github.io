@@ -10,7 +10,7 @@ sidebar_position: 6
 - Logging in: To use SLURM, you need access to a cluster where SLURM is installed. Log in to the cluster using SSH or any other method provided by your system administrator.
 - Job Script: Create a job script that describes the resources required for your job and the commands to be executed. A typical SLURM job script is a shell script with special directives recognized by SLURM. 
 
-## Here's an example job script:
+## Example 1. Here's an example job script:
 Let’s create an sbatch script ($ touch my-job.slurm). Open it using vim editor($ vim my-job.slurm) and insert the following code:
 ```
 #!/bin/bash
@@ -75,7 +75,7 @@ scancel job_id
 scancel 1411747
 ```
 
-- Job Output: By default, SLURM captures the standard output and standard error of your job in a file. In the job script example, the output is redirected to output.txt. After the job finishes, you can examine this file to see the job's output.
+## ## Example 2. 
 ----------------------------------------------------------------------------------------------------------------------
 
 **[SLURM Official Docs](https://slurm.schedmd.com/documentation.html)**
