@@ -43,6 +43,14 @@ You will then be given a message with the ID for that job:
 ```
 Submitted batch job 1411747 on cluster nautilus
 ```
+- After we submit a job, Slurm will create the output and error files. You can see them by running:
+```
+ls
+```
+You'll see the following files:
+```
+myjob_1411747.err  myjob_1411747.out  my-job.slurm
+```
 
 - Checking Job Status: You can check the status of your jobs using the squeue command:
 squeue -u username
