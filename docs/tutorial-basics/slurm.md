@@ -84,7 +84,23 @@ or you can use
 squeue -u $USER
 ```
 
-This will display information about your jobs, such as job ID, job name, status, and other details.
+The squeue command gives us the following information:
+
+- JOBID: The unique ID for your job.
+- PARTITION: The partition your job is running on (or scheduled to run on).
+- NAME: The name of your job.
+- USER: The username for whomever submitted the job.
+- ST: The status of the job. The typical status codes you may see are:
+	- CD (Completed): Job completed successfully
+	- CG (Completing): Job is finishing, Slurm is cleaning up
+	- PD (Pending): Job is scheduled, but the requested resources aren’t available yet
+	- R (Running): Job is actively running
+- TIME: How long your job has been running.
+- NODES: How many nodes your job is using.
+- NODELIST(REASON): Which nodes your job is running on (or scheduled to run on). If your job is not running yet, you will also see one of the following reason codes:
+	- Priority: When Slurm schedules a job, it takes into consideration how frequently you submit jobs. If you often submit many jobs, Slurm will assign you a lower priority than someone who has never submitted a job or submits jobs very infrequently. Don’t worry, your job will run eventually.
+	- Resources: Slurm is waiting for the requested reasources to be available before starting your job.
+	- Dependency: If you are using dependent jobs, the parent job may show this reason if it’s waiting for a dependent job to complete.
 
 - To view detailed information about a specific job, including its resource usage, use the scontrol command:
 scontrol show job job_id -M nautilus
