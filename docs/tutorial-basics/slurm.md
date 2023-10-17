@@ -17,7 +17,7 @@ sidebar_position: 6
 #SBATCH --ntasks-per-node=4
 
 # Commands to run
-echo "Hello, World!"
+echo "Hello, Users!"
 
 ```
 In this example, the job script specifies the job name, the output file name, the number of nodes, and the number of tasks per node. The last line is a sample command to print "Hello, World!".
