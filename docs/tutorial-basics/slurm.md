@@ -10,7 +10,8 @@ sidebar_position: 6
 - Logging in: To use SLURM, you need access to a cluster where SLURM is installed. Log in to the cluster using SSH or any other method provided by your system administrator.
 - Job Script: Create a job script that describes the resources required for your job and the commands to be executed. A typical SLURM job script is a shell script with special directives recognized by SLURM. 
 
-- Here's an example job script:
+## Here's an example job script:
+Let’s create an sbatch script ($ touch my-job.slurm). Open it using vim editor($ vim my-job.slurm) and insert the following code:
 ```
 #!/bin/bash
 
@@ -25,7 +26,7 @@ sidebar_position: 6
 #SBATCH --ntasks=2			# How many tasks per node
 #SBATCH --cpus-per-task=2		# Number of CPUs per task
 #SBATCH --mem-per-cpu=10g		# Memory per CPU
-#SBATCH --qos=short			# quality of service 
+#SBATCH --qos=short			# priority/quality of service 
 
 # Command to run
 hostname				# Run the command hostname
