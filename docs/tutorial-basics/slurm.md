@@ -2,16 +2,30 @@
 sidebar_position: 6
 ---
 
-# Introduction to SLURM
+# 1. Introduction to SLURM
 
 ![Docusaurus Plushie](./slurm.png)
 
 **[SLURM](https://slurm.schedmd.com/documentation.html)** (Simple Linux Utility for Resource Management) is a popular job scheduling and workload management system used in many high-performance computing environments. SLURM allows users to submit and manage jobs on a cluster of computers. It provides a framework for allocating resources (such as CPU cores, memory, and GPUs) and scheduling jobs efficiently.
 - Logging in: To use SLURM, you need access to a cluster where SLURM is installed. Log in to the cluster using SSH or any other method provided by your system administrator.
-- Job Script: Create a job script that describes the resources required for your job and the commands to be executed. A typical SLURM job script is a shell script with special directives recognized by SLURM. 
+- Job Script: Create a job script that describes the resources required for your job and the commands to be executed. A typical SLURM job script is a shell script with special directives recognized by SLURM.
 
-## Example 1. Here's an example job script:
-Let’s create an sbatch script ($ touch my-job.slurm). Open it using vim editor($ vim my-job.slurm) and insert the following code:
+## 1.1 Getting Started with Slurm
+
+To tell Slurm what resources you need, you will have to create an sbatch script (also called a Slurm script). In this tutorial, we will be writing sbatch scripts with bash, but you can use any programming language as long as the pound sign (#) doesn’t cause an error. Your sbatch scripts will generally follow this format:
+
+```
+#!/bin/bash
+# Declaring Slurm Configuration Options
+
+# Loading Software/Libraries
+
+# Running Code
+```
+Let’s start by going over the different configuration options for Slurm in the following example.
+
+### Example 1:
+Create an sbatch script ($ touch my-job.slurm). Open it using vim editor ($ vim my-job.slurm) and insert the following code:
 ```
 #!/bin/bash
 
@@ -31,7 +45,15 @@ Let’s create an sbatch script ($ touch my-job.slurm). Open it using vim editor
 # Command to run
 hostname				# Run the command hostname
 ```
-In this example, the job script specifies the job name, output file name, comment for your job, number of nodes, number of tasks per node, standard output and standard error of your job in a file. The last line is a sample command to print the host name.
+So, in this example, we have requested a job with the following dimensions:
+
+- Max Run Time: 5 Minutes
+- Number of Nodes: 1
+- Number of Tasks Per Node: 2
+- Number of CPUs Per Task: 2
+- Memory Per CPU: 10GB
+
+Finally, we run the bash command hostname. You can run whatever kind of code you want here; C, C++, bash, python, R, Ruby, etc.
 
 - Submitting a Job: Use the sbatch command to submit your job script to SLURM:
 ```
@@ -75,7 +97,7 @@ scancel job_id
 scancel 1411747
 ```
 
-## ## Example 2. 
+### Example 2. 
 ----------------------------------------------------------------------------------------------------------------------
 
 **[SLURM Official Docs](https://slurm.schedmd.com/documentation.html)**
