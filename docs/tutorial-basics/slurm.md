@@ -11,27 +11,37 @@ sidebar_position: 6
 - Job Script: Create a job script that describes the resources required for your job and the commands to be executed. A typical SLURM job script is a shell script with special directives recognized by SLURM. Here's an example job script:
 ```
 #!/bin/bash
-#SBATCH --job-name=myjob
-#SBATCH --output=output.txt
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=4
 
-# Commands to run
-echo "Hello, Users!"
+#SBATCH --job-name=myjob		# Name for your job
+#SBATCH --comment="Run My Job"	# Comment for your job
+
+#SBATCH --output=%x_%j.out		# Output file
+#SBATCH --error=%x_%j.err		# Error file
+
+#SBATCH --time=0-00:05:00		# Time limit
+#SBATCH --nodes=1			# How many nodes to run on
+#SBATCH --ntasks=2			# How many tasks per node
+#SBATCH --cpus-per-task=2		# Number of CPUs per task
+#SBATCH --mem-per-cpu=10g		# Memory per CPU
+#SBATCH --qos=short                     # quality of service 
+
+# Command to run
+hostname				# Run the command hostname
+
 
 ```
-In this example, the job script specifies the job name, the output file name, the number of nodes, and the number of tasks per node. The last line is a sample command to print "Hello, World!".
+In this example, the job script specifies the job name, output file name, comment for your job, number of nodes, and the number of tasks per node. The last line is a sample command to print "Hello, World!".
 
 - Submitting a Job: Use the sbatch command to submit your job script to SLURM:
 ```
-sbatch job_script.sh
+sbatch my-job.slurm
 
 ```
 This will submit your job to the SLURM scheduler for execution.
 
 You will then be given a message with the ID for that job:
 ```
-Submitted batch job 208
+Submitted batch job 1409600 on cluster nautilus or waves
 ```
 
 - Checking Job Status: You can check the status of your jobs using the squeue command:
