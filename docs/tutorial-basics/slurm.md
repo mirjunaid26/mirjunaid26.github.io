@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 1. Introduction to SLURM
+# Introduction to SLURM
 
 ![Docusaurus Plushie](./slurm.png)
 
@@ -10,7 +10,7 @@ sidebar_position: 6
 - Logging in: To use SLURM, you need access to a cluster where SLURM is installed. Log in to the cluster using SSH or any other method provided by your system administrator.
 - Job Script: Create a job script that describes the resources required for your job and the commands to be executed. A typical SLURM job script is a shell script with special directives recognized by SLURM.
 
-## 1.1 Getting Started with Slurm
+## Getting Started with Slurm
 
 To tell Slurm what resources you need, you will have to create an sbatch script (also called a Slurm script). In this tutorial, we will be writing sbatch scripts with bash, but you can use any programming language as long as the pound sign (#) doesn’t cause an error. Your sbatch scripts will generally follow this format:
 
