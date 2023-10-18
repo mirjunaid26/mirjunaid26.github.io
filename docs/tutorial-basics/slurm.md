@@ -113,7 +113,41 @@ scancel job_id
 scancel 1411747
 ```
 
-### Example 2. 
+### Example 2. Fortran
+
+In this part of the tutorial, we will write our first Fortran program: the ubiquitous “Hello, World!” example.
+
+However, before we can write our program, we need to ensure that we have a Fortran compiler set up.
+
+Fortran is a compiled language, which means that, once written, the source code must be passed through a compiler to produce a machine executable that can be run.
+
+Load the module using the following command:
+```
+module load gcc/13.1.0
+```
+
+Once you have loaded the module, open a new file in vim editor and enter the following:
+```
+program hello
+  ! This is a comment line; it is ignored by the compiler
+  print *, 'Hello, World!'
+end program hello
+```
+Having saved your program to hello.f90, compile at the command line with:
+```
+gfortran hello.f90 -o hello
+```
+
+.f90 is the standard file extension for modern Fortran source files. The 90 refers to the first modern Fortran standard in 1990.
+
+To run your compiled program:
+```
+./hello
+```
+
+Congratulations, you’ve written, compiled and run your first Fortran program! 
+
+
 ----------------------------------------------------------------------------------------------------------------------
 
 **[SLURM Official Docs](https://slurm.schedmd.com/documentation.html)**
