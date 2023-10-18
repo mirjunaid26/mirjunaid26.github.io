@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Introduction to SLURM
 
-![Docusaurus Plushie](./slurm.png)
+![Slurm Icon](./slurm.png ==100x20)
 
 **[SLURM](https://slurm.schedmd.com/documentation.html)** (Simple Linux Utility for Resource Management) is a popular job scheduling and workload management system used in many high-performance computing environments. SLURM allows users to submit and manage jobs on a cluster of computers. It provides a framework for allocating resources (such as CPU cores, memory, and GPUs) and scheduling jobs efficiently.
 - Logging in: To use SLURM, you need access to a cluster where SLURM is installed. Log in to the cluster using SSH or any other method provided by your system administrator.
@@ -141,7 +141,7 @@ Note: It is possible that the file is not always sourced at the login on GLiCID 
 
 To verify the installation:
 ```
-micromamba --version  # ou: `conda --version`
+micromamba --version  # or: `conda --version`
 # -> 1.4.0
 
 # create and environment micromamba/conda
@@ -160,7 +160,7 @@ python -V
 python -c "import numpy as np; print(np.__version__)"
 # -> 1.24.2
 
-# Désactiver l'environnement
+# Deactivate  the environment
 micromamba deactivate
 
 
