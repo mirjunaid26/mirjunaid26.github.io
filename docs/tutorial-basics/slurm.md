@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Introduction to SLURM
 
-![Slurm Icon](./slurm.png ==100x20)
+![Docusaurus Plushie](./slurm.png=100x200)
 
 **[SLURM](https://slurm.schedmd.com/documentation.html)** (Simple Linux Utility for Resource Management) is a popular job scheduling and workload management system used in many high-performance computing environments. SLURM allows users to submit and manage jobs on a cluster of computers. It provides a framework for allocating resources (such as CPU cores, memory, and GPUs) and scheduling jobs efficiently.
 - Logging in: To use SLURM, you need access to a cluster where SLURM is installed. Log in to the cluster using SSH or any other method provided by your system administrator.
