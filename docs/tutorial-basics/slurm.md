@@ -24,7 +24,8 @@ To tell Slurm what resources you need, you will have to create an sbatch script 
 ```
 Let’s start by going over the different configuration options for Slurm in the following example.
 
-### Example 1:
+### TP_1: SLURM Basics
+
 Create an sbatch script ($ touch my-job.slurm). Open it using vim editor ($ vim my-job.slurm) and insert the following code:
 ```
 #!/bin/bash
@@ -113,7 +114,11 @@ scancel job_id
 scancel 1411747
 ```
 
-### Example 2. Fortran
+### TP_2. OpenMP/MPI
+
+### TP_3. Anaconda/Python
+
+### TP_4. FORTRAN
 
 In this part of the tutorial, we will write our first Fortran program: the ubiquitous “Hello, World!” example.
 
