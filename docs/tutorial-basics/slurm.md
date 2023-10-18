@@ -116,7 +116,55 @@ scancel 1411747
 
 ### TP_2. OpenMP/MPI
 
-### TP_3. Anaconda/Python
+### TP_3. Conda and Micromamba
+
+Conda is a software environment manager that is quite popular, especially in the Python community, but it has many issues in the context of HPC use.
+ 
+Note: GLiCID administrators advise against its use, especially if the affected software is already available in Guix. However, some packages are not available(yet) on Guix.
+In GLiCID, we have decided to use micromamba, which is the lighter version of conda. Here are the commands to run to install it locally on GLiCID:
+```
+# Download micromamba
+mkdir -p $HOME/.local/bin
+wget -P $HOME/.local/bin https://s3.glicid.fr/pkgs/micromamba
+chmod u+x $HOME/.local/bin/micromamba
+
+# Initilize micromamba
+$HOME/.local/bin/micromamba -r /micromamba/$USER/ shell init --shell=bash --prefix=/micromamba/$USER/
+
+# [OPTIONAL] Add an alias `conda`
+echo -e '\n\n#Alias conda with micromamba\nalias conda=micromamba' >> ~/.bashrc
+
+# Reload the .bashrc
+source ~/.bashrc
+```
+Note: It is possible that the file is not always sourced at the login on GLiCID (investigations are ongoing). If this is not the case, remember to do after each login to load well. .bashrcsource ~/.bashrcmicromamba
+
+To verify the installation:
+```
+micromamba --version  # ou: `conda --version`
+# -> 1.4.0
+
+# create and environment micromamba/conda
+micromamba create -n my_env
+
+# Activate the ennvironment
+micromamba activate my_env
+
+# -> Your prompt should now be prefixed with: (my_env)
+
+# Install the package using conda-forge
+micromamba install -c conda-forge numpy
+
+# Test the package
+python -V
+python -c "import numpy as np; print(np.__version__)"
+# -> 1.24.2
+
+# Désactiver l'environnement
+micromamba deactivate
+
+
+```
 
 ### TP_4. FORTRAN
 
