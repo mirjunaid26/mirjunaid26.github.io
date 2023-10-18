@@ -114,7 +114,63 @@ scancel job_id
 scancel 1411747
 ```
 
-### TP_2. OpenMP/MPI
+### TP_2. Parallel Programming
+
+#### IntelMPI
+
+Let's try one embarassingly parallel program. Create a file using touch command and name it hello-mpi.cpp
+
+Open the file using vim editor and insert the following code:
+```
+#include <iostream>
+#include "mpi.h"
+using namespace std;
+int main(int argc,char **argv)
+{
+  int rank,size;
+  MPI_Init(&argc,&argv);
+  MPI_Comm_rank(MPI_COMM_WORLD,&rank);
+  MPI_Comm_size(MPI_COMM_WORLD,&size);
+  int namesize;
+  char name[512];
+  MPI_Get_processor_name(name,&namesize);
+  cout << "hello from " << rank << " out of " << size << " running on " <<  name << " " <<  endl;
+  MPI_Finalize();
+  return 0;
+}
+```
+
+Load the IntelMPI module using:
+```
+module load intel/compiler intel/mpi
+```
+Now, compile the code using the following command:
+```
+mpicxx -cxx=icpx -O3 -o hello-intelmpi hello-mpi.cpp
+```
+Once compiled, create a slurm script and name it job-intel.slurm. Here's the script:
+```
+#!/bin/bash
+#SBATCH --job-name=HelloWorldMpi
+#SBATCH --partition=standard
+
+module purge
+module load intel/compiler intel/mpi
+export I_MPI_PMI_LIBRARY=/lib64/libpmi2.so
+export I_MPI_COLL_EXTERNAL=0
+export I_MPI_ADJUST_BCAST=0
+export I_MPI_FABRICS=shm:ofi
+export FI_PROVIDER=psm3
+
+srun --mpi=pmi2 ./hello-intelmpi
+
+```
+
+Finally, submit the job using the following command
+```
+sbatch -M nautilus -p standard -q short job-intel.slurm
+```
+Now, monitor your job and check the output files.
 
 ### TP_3. Conda and Micromamba
 
