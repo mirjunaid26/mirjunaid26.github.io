@@ -172,6 +172,44 @@ sbatch -M nautilus -p standard -q short job-intel.slurm
 ```
 Now, monitor your job and check the output files.
 
+#### OpenMPI
+
+Let's try compiling with GNU compiler and OpenMPI but first you need to purge the loaded modules.
+```
+module purge
+```
+
+Now, load openMPI module using:
+```
+module load gcc openmpi/ucx/4.1.5_gcc_8.5.0_uxc_1.14.1_rdma_46.0
+```
+and compile hello-mpi.cpp program using:
+```
+mpicxx -O3 -o hello-openmpi hello-mpi.cpp
+```
+
+Once compiled, create a slurm script and name it job-mpi.slurm. Here's the script:
+```
+#!/bin/bash
+#SBATCH --job-name=HelloWorldMpi
+#SBATCH --partition=standard
+
+module purge
+module load gcc openmpi/ucx/4.1.5_gcc_8.5.0_ucx_1.14.1_rdma_46.0
+
+export UCX_WARN_UNUSED_ENV_VARS=n
+export OMPI_MCA_btl=^openib
+export UCX_NET_DEVICES=mlx5_2:1
+
+srun ./hello-openmpi
+```
+Submit the job using the following command
+```
+sbatch -M nautilus -p standard -q short job-mpi.slurm
+```
+Now, monitor your job and check the output files.
+
+
 ### TP_3. Conda and Micromamba
 
 Conda is a software environment manager that is quite popular, especially in the Python community, but it has many issues in the context of HPC use.
@@ -194,6 +232,12 @@ echo -e '\n\n#Alias conda with micromamba\nalias conda=micromamba' >> ~/.bashrc
 source ~/.bashrc
 ```
 Note: It is possible that the file is not always sourced at the login on GLiCID (investigations are ongoing). If this is not the case, remember to do after each login to load well. .bashrcsource ~/.bashrcmicromamba
+
+Note: Set proxy on Nautilus (not devel) use:
+```
+export http_proxy=http://proxy-upgrade.univ-nantes.fr:3128/
+export https_proxy=http://proxy-upgrade.univ-nantes.fr:3128/
+```
 
 To verify the installation:
 ```
