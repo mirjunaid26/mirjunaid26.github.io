@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# Apptainers
+#  Containers for Scientific and High-Performance Computing (Apptainer/Singularity)
 
 ![Docusaurus Plushie](./apptainer.png)
 
