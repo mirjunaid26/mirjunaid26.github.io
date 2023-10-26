@@ -33,4 +33,13 @@ sidebar_position: 5
 
     5. You can log in using the session created in MobaXTerm (Windows), or with the GLiCID ssh command from a terminal (Linux and MacOS).
 
-    Note: Avoid using passwords on the GLiCID platform.
+Note: Avoid using passwords on the GLiCID platform.
+
+After, logging in you need to generate the key and copy it to authorized keys directory.
+
+```
+login@guix-devel-00X# ssh-keygen -t rsa
+login@guix-devel-00X# cat .ssh/id_rsa.pub > .ssh/authorized_keys
+```
+    
+    
