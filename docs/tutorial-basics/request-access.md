@@ -35,11 +35,12 @@ sidebar_position: 5
 
 Note: Avoid using passwords on the GLiCID platform.
 
-After, logging in you need to generate the key and copy it to authorized keys directory.
+After, logging in to glicid, you need to generate the key and copy it to authorized keys directory to access nautilus.
 
 ```
 login@guix-devel-00X# ssh-keygen -t rsa
 login@guix-devel-00X# cat .ssh/id_rsa.pub > .ssh/authorized_keys
+login@guix-devel-00X# ssh nautilus-devel-001
 ```
     
     
