@@ -36,3 +36,7 @@ When a container is running, it relies on an isolated filesystem that is entirel
 Furthermore, an image includes various configurations that pertain to the container itself, such as environment variables, a default command to execute upon container startup, and relevant metadata that clarifies its purpose and behavior within the HPC or research context.
 
 By combining containers and images, researchers in the field of HPC and reproducible research can ensure the consistency and replicability of their computational experiments, as the entire environment, from software stacks to configurations, is encapsulated and isolated, minimizing the risk of unwanted interference and enhancing the ability to reproduce results accurately.
+
+
+## References:
+1. Singularity/Apptainer Tutorial (https://hsf-training.github.io/hsf-training-singularity-webpage/04-building-containers/index.html)
