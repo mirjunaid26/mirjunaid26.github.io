@@ -19,9 +19,9 @@ In order to gain access to GLiCID you have to follow these steps:
 2. The account will be validated by an administrator.
 3. User has to generate and upload the pulblic SSH key to CLAM portal (in profile's SSH Access tab).
 4. Edit the .ssh/config file and add the defined configuration.
-5. Finally, you can log in using SSH from terminal (on Linux and macOS) and using MobaXTerm or PowerShell (on Windows).
+5. Finally, you can log in using SSH from terminal (on Linux and macOS) and PowerShell (on Windows).
 
-## OpenSSH Configuration
+## OpenSSH
 
 OpenSSH is a popular and freely available SSH client for UNIX-like operating systems such as GNU/Linux and macOS.
 
@@ -35,4 +35,51 @@ At GLiCID, we do not allow logging into our systems solely with a password. Rath
 ```
 ssh-keygen
 ```
+
+Note: If the file ~/.ssh/id_rsa already exists, ssh-keygen will ask before overwriting it. You probably do not want to overwrite the file as you might already be using it as credentials for another system. Instead, use a different file name, e.g., ~/.ssh/id_glicid and remember to use the same file name on all subsequent lines in this document.
+
+Afterwards, ssh-keygen will ask for a passphrase. It is not mandatory to enter a passphrase as you can simple press enter to proceed without passpharse. However, it is recommended to provide a strong passphrase and it needs to be entered in the future to unlock your private key. You might want to use a password manager to save your key and easy the use of complicated passphrases. 
+
+Keep the private key i.e., ~/.ssh/id_rsa safe and confidential on your local host. The generated puclic  key i.e., ~/.ssh/id_rsa.pub needs to be uploaded to the CLAM user portal on https://clam.glicid.fr
+
+# OpenSSH Configuration 
+
+The user-side SSH configuration can be used to create shortcuts to targets/hosts and configure connections. The shortcuts and options also influnce the behavious of any program that uses SSH underneath, such as git, scp, and rsync.
+
+An overview of all the available options can be seen via "man ssh_config". That's probably overwhelming, so here are a few options and configuraions highlighted.
+
+Edit the .ssh/config file and add the following:
+```
+Host Bastion
+    Hostname bastion.glicid.fr
+    User <username>@ec-nantes.fr
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
+
+Host glicid
+    Hostname login-001.glicid.fr
+    User <username>@ec-nantes.fr
+    ProxyJump Bastion
+    IdentityFile ~/.ssh/id_rsa
+
+Host nautilus
+    Hostname nautilus-devel-001.nautilus.intra.glicid.fr
+    User jmir@ec-nantes.fr
+    ProxyJump glicid
+    IdentityFile ~/.ssh/id_rsa
+```
+The above entries create a shortcut that allows you to log in to the individaul nodes via the shortcut such as glicid, nautilus, and philias(soon).   
+  
+Afterwards, you can simply connect to the GLiCID Cluster login nodes from the terminal using the following commands
+```
+ssh glicid
+```
+or
+```
+ssh nautilus
+```
+Note: If you're a windows user and not comfortable with the terminal, you can use MobaXterm. 
+
+
+
 
