@@ -2,7 +2,9 @@
 sidebar_position: 1
 ---
 
-# Getting Started With GLiCID
+# Quickstart
+
+## Getting Started With GLiCID
 
 This is the official user documentation of GLiCID, which is a regional High Performance Computing Centre (Mésocentre) in Loire Atalntique hosted at Ecole Centrale de Nantes and Nantes University.
 
