@@ -6,11 +6,11 @@ sidebar_position: 1
 
 ## Getting Started With GLiCID
 
-This is the official user documentation of GLiCID, which is a regional High Performance Computing Centre (Mésocentre) in Loire Atalntique hosted at Ecole Centrale de Nantes and Nantes University.
+"This serves as the official user guide for GLiCID, a regional High Performance Computing center (Mésocentre) located in Loire Atlantique and hosted by Ecole Centrale de Nantes and Nantes University. 
 
-It explains various aspects of using GLiCID cluster and contains both introdcutory and advanced material. The first time users might want to start from the beginning and you will learn how to log in to GlICID, familiarize yourslef with the environment, find pre-installed software, compile your programs and run them on GLiCID.
+It provides comprehensive instructions for utilizing the GLiCID cluster, catering to both beginners and advanced users. Newcomers are encouraged to begin from the start, where they'll find guidance on how to log in to GLiCID, acquaint themselves with the environment, discover pre-installed software, compile programs, and execute them on GLiCID.
 
-The users familiar with Liger and Waves can go through the table of conetnets and browse the topics they are interested in. We hope that you can find most of the information you need to use our computing reources. 
+Experienced users who are already acquainted with Liger and Waves can conveniently navigate the table of contents and explore the specific topics they're interested in."
 
 
 ## How to access GLiCID Cluster
