@@ -38,5 +38,50 @@ Furthermore, an image includes various configurations that pertain to the contai
 By combining containers and images, researchers in the field of HPC and reproducible research can ensure the consistency and replicability of their computational experiments, as the entire environment, from software stacks to configurations, is encapsulated and isolated, minimizing the risk of unwanted interference and enhancing the ability to reproduce results accurately.
 
 
+# TP
+
+```
+apptainer --help
+```
+It will gice the description of the apptainer and various options using apptainer.
+There are lots of different options but we are going to focus on shell, run, exec, build, and sign and verify. We are not gonna cover everything.
+
+```
+cat /etc/os-release
+```
+PRETTY_NAME="Ubuntu 22.04.3 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.3 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+
+Let's say we want to switch to another OS by grabbing a container from docker hub and shell into it using Apptainer. Let's shell into official Apline container
+
+```
+apptainer shell docker://alpine
+```
+
+```
+cat /etc/os-release
+```
+Apptainer> cat /etc/os-release
+NAME="Alpine Linux"
+ID=alpine
+VERSION_ID=3.18.4
+PRETTY_NAME="Alpine Linux v3.18"
+HOME_URL="https://alpinelinux.org/"
+BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+Apptainer> 
+
+You can see now that we are on Alpine Linux instead and Ubuntu. So, we just sawpped our OS with a single command. That's the essence of containers.
+
+
 ## References:
 1. Singularity/Apptainer Tutorial (https://hsf-training.github.io/hsf-training-singularity-webpage/04-building-containers/index.html)
