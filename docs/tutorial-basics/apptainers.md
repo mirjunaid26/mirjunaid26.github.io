@@ -270,30 +270,7 @@ Then shell into the container.
 
 mir@pc-ici02:~/container-tutorial$ apptainer shell lolcow.sif 
 Apptainer> cowsay moo
- _____
-< moo >
- -----
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
 Apptainer> fortune
-Truth is the most valuable thing we have -- so let us economize it.
-		-- Mark Twain
-Apptainer> fortune | cowsay | lolcat
- ________________________________
-/ question = ( to ) ? be : ! be; \
-|                                |
-\ -- Wm. Shakespeare             /
- --------------------------------
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
-Apptainer> 
-
 Apptainer> exit      
 exit
 jmir@pc-ici02:~/container-tutorial$ cowsay moo
@@ -304,17 +281,7 @@ jmir@pc-ici02:~/container-tutorial$
 Directly running the container
 
 jmir@pc-ici02:~/container-tutorial$ apptainer run lolcow.sif cowsay moo
- _____________________________________
-/ Let him choose out of my files, his \
-| projects to accomplish.             |
-|                                     |
-\ -- Shakespeare, "Coriolanus"        /
- -------------------------------------
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
+
 jmir@pc-ici02:~/container-tutorial$ 
 
 Also, if you type ll, you'll see lolcow.sif is executable.
@@ -325,23 +292,6 @@ So, you can simple run
 ./lowcow.sif
 ```
 jmir@pc-ici02:~/container-tutorial$ ./lolcow.sif 
- _________________________________________
-/ "I wonder", he said to himself, "what's \
-| in a book while it's closed. Oh, I know |
-| it's full of letters printed on paper,  |
-| but all the same, something must be     |
-| happening, because as soon as I open    |
-| it, there's a whole story with people I |
-| don't know yet and all kinds of         |
-| adventures and battles."                |
-|                                         |
-\ -- Bastian B. Bux                       /
- -----------------------------------------
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
 
 
 So, that's basic Apptainer look and feel and how to download and interact with them.
