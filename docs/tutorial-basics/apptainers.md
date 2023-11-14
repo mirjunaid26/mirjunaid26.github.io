@@ -43,7 +43,7 @@ By combining containers and images, researchers in the field of HPC and reproduc
 ```
 apptainer --help
 ```
-It will gice the description of the apptainer and various options using apptainer.
+It will give the description of the apptainer and various options using apptainer.
 There are lots of different options but we are going to focus on shell, run, exec, build, and sign and verify. We are not gonna cover everything.
 
 ```
@@ -82,7 +82,7 @@ HOME_URL="https://alpinelinux.org/"
 BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
 Apptainer>
 
-You can see now that we are on Alpine Linux instead and Ubuntu. So, we just sawpped our OS with a single command. That's the essence of containers.
+You can see now that we are on Alpine Linux instead of Ubuntu. So, we just sawpped our OS with a single command. That's the essence of containers.
 
 Now, if we want to do the same thing without shelling into the container, we can do so using exec command
 
@@ -101,6 +101,7 @@ PRETTY_NAME="Alpine Linux v3.18"
 HOME_URL="https://alpinelinux.org/"
 BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
 
+Try whoami, hostname, id by entering the container and then on your system. You're the same user inside the container as you are outside the container. It makes reading and writing files from the host system easier.
 
 ## Most people want to use containers because they have applications which they don't have installed on the host system and don't want to install on the host system because of some reason and they want to have quick and easy access to them.
 
@@ -237,6 +238,115 @@ Another thing is when you enter a container and you have a new file system, you 
 When Apptainer does that operation it passes the nosuid to the mount command which prevents you from being bale to use suid programs like sudo within the container. So the point of telling all this is it's not like there's some complicated security privilege model which is taked on top of apptainer to make everything secure. Instead apptainer just uses the kernel and the file system features which have existed in linux for ever and which are really well known and which are dependent upon and make sure you can't excalate your privileges inside th container. It's really simple and stratightforward.
 
 Let me show you once of the interesting side of that.
+
+--------------------------------------------------------------------------------
+
+Let's pull a container from OCI registry using oras and then check the contents inside which we cannot do after pulling normal docker image
+
+jmir@pc-ici02:~/container-tutorial$ apptainer pull --force lolcow.sif oras://docker.io/godlovedc/lolcow:sif
+INFO:    Downloading oras image
+jmir@pc-ici02:~/container-tutorial$ ls
+alpine.sif         conda-environment.tar.gz  foo         python_latest.sif     test-installation-container
+conda-environment  docker-tutorial           lolcow.sif  singularity-training  test-script.py
+jmir@pc-ici02:~/container-tutorial$ apptainer inspect --deffile lolcow.sif 
+bootstrap: docker
+from: ubuntu:18.04
+
+%environment
+    export LC_ALL=C
+    export PATH=/usr/games:$PATH
+
+%runscript
+    fortune | cowsay | lolcat
+
+%post
+    apt-get -y update
+    apt-get -y install fortune cowsay lolcat
+jmir@pc-ici02:~/container-tutorial$ 
+
+Voila. This is why you would want to use oras rather than normal oci image.
+
+Then shell into the container.
+
+mir@pc-ici02:~/container-tutorial$ apptainer shell lolcow.sif 
+Apptainer> cowsay moo
+ _____
+< moo >
+ -----
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+Apptainer> fortune
+Truth is the most valuable thing we have -- so let us economize it.
+		-- Mark Twain
+Apptainer> fortune | cowsay | lolcat
+ ________________________________
+/ question = ( to ) ? be : ! be; \
+|                                |
+\ -- Wm. Shakespeare             /
+ --------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+Apptainer> 
+
+Apptainer> exit      
+exit
+jmir@pc-ici02:~/container-tutorial$ cowsay moo
+Command 'cowsay' not found, but can be installed with:
+sudo apt install cowsay
+jmir@pc-ici02:~/container-tutorial$ 
+
+Directly running the container
+
+jmir@pc-ici02:~/container-tutorial$ apptainer run lolcow.sif cowsay moo
+ _____________________________________
+/ Let him choose out of my files, his \
+| projects to accomplish.             |
+|                                     |
+\ -- Shakespeare, "Coriolanus"        /
+ -------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+jmir@pc-ici02:~/container-tutorial$ 
+
+Also, if you type ll, you'll see lolcow.sif is executable.
+
+So, you can simple run
+
+```
+./lowcow.sif
+```
+jmir@pc-ici02:~/container-tutorial$ ./lolcow.sif 
+ _________________________________________
+/ "I wonder", he said to himself, "what's \
+| in a book while it's closed. Oh, I know |
+| it's full of letters printed on paper,  |
+| but all the same, something must be     |
+| happening, because as soon as I open    |
+| it, there's a whole story with people I |
+| don't know yet and all kinds of         |
+| adventures and battles."                |
+|                                         |
+\ -- Bastian B. Bux                       /
+ -----------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+So, that's basic Apptainer look and feel and how to download and interact with them.
+
+
 
 # TP 1: Hello World Container
 
