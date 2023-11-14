@@ -297,14 +297,87 @@ jmir@pc-ici02:~/container-tutorial$ ./lolcow.sif
 So, that's basic Apptainer look and feel and how to download and interact with them.
 
 
+# TP: Job submission on Nautilus
+
+#!/bin/bash
+#SBATCH --job-name=single_gpu        # name of job
+#SBATCH --account=<project_id>       # replace <project_id> by your project ID
+#SBATCH --ntasks=1                   # total number of processes (= number of GPUs here)
+#SBATCH -p gpus                      # name of the GPU partition
+#SBATCH -w turing02                  # name of the target GPU server
+#SBATCH --gres=gpu:1                 # number of GPUs (1/4 of GPUs)
+#SBATCH --cpus-per-task=12           # number of cores per task (1/4 of the 4-GPUs node)
+# /!\ Caution, "multithread" in Slurm vocabulary refers to hyperthreading.
+#SBATCH --hint=nomultithread         # hyperthreading is deactivated
+#SBATCH --time=00:10:00              # maximum execution time requested (HH:MM:SS)
+#SBATCH --output=gpu_single%j.out    # name of output file
+#SBATCH --error=gpu_single%j.out     # name of error file (here, appended with the output file)
+
+# cleans out the modules loaded in interactive and inherited by default 
+module purge
+
+# load Singularity
+module load singularity   
+
+# echo of launched commands
+set -x
+
+# code execution. As in the previous examples, use singularity to submit your job in a 
+# container that you chose. Let's use the TF container once again
+singularity exec --nv -B ./:app \  # tell singularity to run a program with nvidia gpus 
+                                   # copy the current folder in the container
+            /softs/singularity/containers/ai/ngc-tf2.3-fat_latest.sif \ # container name
+            python3 \ # command to run - Python interpreter in this case
+            train.py  # python file with AI training
+
 
 # TP 1: Hello World Container
+
+Check this https://hsf-training.github.io/hsf-training-singularity-webpage/05-definition-files/index.html
+
+BootStrap: docker
+From: ubuntu:20.04
+
+%runscript
+  echo "Hello World"
+# Print Hello world when the image is loaded
 
 # TP 2: Anaconda Container
 
 # TP 3: PyTorch
 
 # TP 4: Tensorflow
+
+# TP 5
+
+BootStrap: docker
+From: ubuntu:20.04
+
+%post
+    apt-get update -y
+    apt-get install wget -y
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get install dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev \
+        libxft-dev libxext-dev python libssl-dev libgsl0-dev libtiff-dev -y
+    cd /opt
+    wget https://root.cern/download/root_v6.22.06.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
+    tar -xzvf root_v6.22.06.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
+
+%environment
+    export PATH=/opt/root/bin:$PATH
+    export LD_LIBRARY_PATH=/opt/root/lib:$LD_LIBRARY_PATH
+    export PYTHONPATH=/opt/root/lib
+
+%runscript
+    python /opt/root/tutorials/roofit/rf101_basics.py
+
+%labels
+    Author HEPTraining
+    Version v0.0.1
+
+%help
+    Example container running the RooFit tutorial and producing the rf101_basics.png image.
+    The container provides ROOT with RooFit and Python integration running on Ubuntu.
 
 
 ## References:
