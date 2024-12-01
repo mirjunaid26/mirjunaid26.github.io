@@ -269,6 +269,17 @@ ul li::before {
     text-align: center;
 }
 
+/* About section */
+#about p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+#about p:last-child {
+    margin-bottom: 0;
+}
+
 /* Links */
 a {
     color: var(--secondary-color);
