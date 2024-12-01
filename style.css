@@ -259,6 +259,16 @@ ul li::before {
     line-height: 1.4;
 }
 
+/* Profile section */
+.profile .headline {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0.5rem 0;
+    max-width: 600px;
+    text-align: center;
+}
+
 /* Links */
 a {
     color: var(--secondary-color);
