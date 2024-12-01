@@ -86,9 +86,72 @@ section {
 h2 {
     color: var(--primary-color);
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--border-color);
+}
+
+h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin: 1.5rem 0 1rem;
+}
+
+/* Experience section */
+.experience-item {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--light-gray);
+    border-radius: 4px;
+}
+
+.position {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.workplace {
+    color: var(--secondary-color);
+    margin-bottom: 0.25rem;
+}
+
+.duration {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.responsibilities {
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+}
+
+/* Skills section */
+.skills-group {
+    margin-bottom: 1.5rem;
+}
+
+.skills-group h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.skills-group ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skills-group li {
+    background-color: var(--light-gray);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.skills-group li::before {
+    display: none;
 }
 
 /* Research interests */
@@ -134,9 +197,9 @@ ul li::before {
     font-style: italic;
 }
 
-/* Education */
+/* Education section */
 .education-item {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .degree {
@@ -145,7 +208,21 @@ ul li::before {
 }
 
 .institution {
-    color: var(--text-color);
+    color: var(--secondary-color);
+}
+
+.education-item .duration {
+    margin-top: 0.25rem;
+}
+
+/* Links */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive design */
@@ -161,5 +238,14 @@ ul li::before {
     .profile-img {
         width: 120px;
         height: 120px;
+    }
+
+    .skills-group ul {
+        flex-direction: column;
+    }
+
+    .skills-group li {
+        width: 100%;
+        text-align: center;
     }
 }
