@@ -205,20 +205,58 @@ ul li::before {
 
 /* Education section */
 .education-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-.degree {
+.education-item .degree {
     font-weight: 600;
-    color: var(--primary-color);
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
 }
 
-.institution {
-    color: var(--secondary-color);
+.education-item .institution {
+    font-weight: 500;
+    color: #34495e;
+    margin-bottom: 0.2rem;
 }
 
 .education-item .duration {
-    margin-top: 0.25rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.education-item .specialization {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.education-item .activities {
+    margin: 0.5rem 0;
+}
+
+.education-item .activities ul {
+    margin-top: 0.3rem;
+    padding-left: 1.2rem;
+}
+
+.education-item .skills {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+.education-item .details ul {
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+    list-style-type: disc;
+}
+
+.education-item .details li {
+    margin-bottom: 0.3rem;
+    color: #444;
+    line-height: 1.4;
 }
 
 /* Links */
