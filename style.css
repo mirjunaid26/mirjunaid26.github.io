@@ -33,12 +33,13 @@ header {
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    margin-bottom: 1rem;
     object-fit: cover;
-    border: 3px solid var(--secondary-color);
+    margin-bottom: 1rem;
+    border: 3px solid #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 h1 {
